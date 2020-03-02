@@ -30,13 +30,15 @@ public class UserDialogs {
     }
 
     public static void showStatus(int round, int rounds, int playerScore, int computerScore) {
-
+        System.out.println("Round number: " + round + "\n" + "Player score: " + playerScore + "\n" +
+                "Computer score: " + computerScore);
     }
 
     public static RpsMove getPlayerMove() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter your move (P, R, S, X, N): ");
+            System.out.println("Enter your move: \n P - paper \n R - rock \n S - scissors  " +
+                    "\n X - exit \n N -new game ");
             String result = scanner.nextLine();
             switch (result) {
                 case "P":
@@ -56,10 +58,17 @@ public class UserDialogs {
     }
 
     public static void showRoundWinner(RpsMove playerMove, RpsMove computerMove, RpsPlayer roundWinner) {
-        // dorobić wyświetlanie
+        roundWinner = RpsLogic.getWinner( playerMove, computerMove );
+        System.out.println("Round winner is " + roundWinner);
     }
 
     public static void showFinalWinner(int computerScore, int playerScore) {
-        //dorobić wyświetlanie
+        System.out.println("Computer has scored: " + computerScore );
+        System.out.println("Player has scored " + playerScore);
+        if(computerScore>playerScore){
+            System.out.println("Computer has won the game");
+        } else if(playerScore>computerScore){
+            System.out.println("Human player has won the game");
+        } else System.out.println("We have a draw");
     }
 }
