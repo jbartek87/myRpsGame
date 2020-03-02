@@ -69,6 +69,8 @@ public class UserDialogs {
             System.out.println("Computer has won the game");
         } else if(playerScore>computerScore){
             System.out.println("Human player has won the game");
-        } else System.out.println("We have a draw");
+        } else {
+            System.out.println( "We have a draw" );
+        }
     }
 }
